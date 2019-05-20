@@ -37,8 +37,8 @@ let analyseSound = () => {
         // frequency
         var f = i * fsDivN;
 
-        // 4.2kHz以上は必要ないので抜ける
-        if(f>4200){
+        // 1kHz以上は必要ないので抜ける
+        if(f>1000){
             return true;
         }
 
@@ -97,7 +97,7 @@ let startRecording = () => {
         // 音声解析関連
         audioAnalyser = audioContext.createAnalyser();
         audioAnalyser.fftSize = 32768;
-        audioAnalyser.minDecibels = -90;
+        audioAnalyser.minDecibels = -80;
         
         mediastreamsource.connect(audioAnalyser);
     },
